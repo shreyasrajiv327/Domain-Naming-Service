@@ -356,14 +356,15 @@ const App = () => {
 				{ mints && renderMints() }
 
 				<div className="footer-container">
-					<img alt="Github Logo" className="github-logo" src={githubLogo} style={{ width: '50px', height: '50px' }}  />
-					<a
-						className="footer-text"
-						href={GITHUB_LINK}
-						target="_blank"
-						rel="noreferrer"
-					>{`@${GITHUB_HANDLE}`}</a>
-				</div>
+  <img alt="Github Logo" className="github-logo" src={githubLogo} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
+  <a
+    className="footer-text"
+    href={GITHUB_LINK}
+    target="_blank"
+    rel="noreferrer"
+  >{`@${GITHUB_HANDLE}`}</a>
+</div>
+
 			</div>
 		</div>
 	);

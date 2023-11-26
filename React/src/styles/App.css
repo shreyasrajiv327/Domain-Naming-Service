@@ -11,7 +11,7 @@ p {
 
 .container {
   height: 100%;
-  background-color: #181818;
+  background-color: #070220;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -153,7 +153,7 @@ header{
 }
 
 .footer-text {
-  color: white;
+  color: rgb(5, 255, 238);
   font-size: 16px;
   font-weight: bold;
 }
