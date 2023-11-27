@@ -1,18 +1,21 @@
 const main = async () => {
+  //getting the wallet address of the owner and some random guy called superCoder,needed for deploying into the blockchain
   const [owner, superCoder] = await hre.ethers.getSigners();
+  //This will actually compile our contract and generate the necessary files we need to work with our contract 
   const domainContractFactory = await hre.ethers.getContractFactory('Domains');
+  //Hardhat will create a local Ethereum network for us, but just for this contract
   const domainContract = await domainContractFactory.deploy("ninja");
   //await domainContract.deployed();
 
-  console.log("Contract owner:", await owner.getAddress());
+  console.log("Contract owner:", await owner.getAddress());//getting the owner'saddress
 
-  // Let's be extra generous with our payment (we're paying more than required)
+  // We are registering the a16z in the smart contract
   let txn = await domainContract.register("a16z",  {value: ethers.parseEther('1234')});
 
   await txn.wait();
 
   // How much money is in here?
-  const balance = await hre.ethers.provider.getBalance(await domainContract.getAddress());
+  const balance = await hre.ethers.provider.getBalance(await domainContract.getAddress());//the contract's address balance
   console.log("Contract balance:", hre.ethers.formatEther(balance));
 
   // Quick! Grab the funds from the contract! (as superCoder)

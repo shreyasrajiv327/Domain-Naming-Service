@@ -31,10 +31,10 @@ contract Domains is ERC721URIStorage {
   address payable public owner;
     //initialises the owner of a domain calls the parent constructor function setting the name and symbol for the nft
     constructor(string memory _tld) ERC721 ("CryptoConnect Name Service", "CCNS") payable { //ERC721 will create a collection of the NFTS MINTED FOR the domain
-        owner = payable(msg.sender);
+        owner = payable(msg.sender);//msg.sender is the connected wallet address
         tld = _tld;
         console.log("%s name service deployed", _tld);
-    }
+    }//This is the constructor function, which takes a string parameter _tld representing the top-level domain and sets up the contract.
 
   function register(string calldata name) public payable {
     // Check if the domain is already registered
