@@ -27,8 +27,7 @@ const App = () => {
 
 	const connectWallet = async () => {
 		try {
-			const { ethereum } = window;//This line uses destructuring to extract the ethereum object from the window object. 
-			//The ethereum object is provided by the MetaMask browser extension and is used to interact with the Ethereum blockchain.
+			const { ethereum } = window;
 
 			if (!ethereum) {
 				alert("Get MetaMask -> https://metamask.io/");
@@ -36,7 +35,6 @@ const App = () => {
 			}
 
 			const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-			
 
 			console.log("Connected", accounts[0]);
 			setCurrentAccount(accounts[0]);
