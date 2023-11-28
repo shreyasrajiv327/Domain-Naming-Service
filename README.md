@@ -1,7 +1,6 @@
 # Domain-Naming-Service
-<img width="1439" alt="Screenshot 2023-11-28 at 5 23 06 PM" src="https://github.com/shreyasrajiv327/Domain-Naming-Service/assets/131350902/3eb1ef3a-6e67-4b2a-a70d-1e6ef8f7cfdb">
+<img width="1439" alt="Screenshot 2023-11-28 at 5 34 40 PM" src="https://github.com/shreyasrajiv327/Domain-Naming-Service/assets/131350902/046e038c-3052-47cc-8ef4-baa784face42">
 
-## Overview
 
 This project is a decentralized naming service using Solidity for the backend smart contracts and React for the frontend interface. It allows users to register and manage unique names associated with Ethereum addresses on the Polygon network.
 
