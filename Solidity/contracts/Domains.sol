@@ -93,17 +93,18 @@ contract Domains is ERC721URIStorage {
 
 
   // This function will give us the price of a domain based on length
-  function price(string calldata name) public pure returns(uint) {
+function price(string calldata name) public pure returns(uint) {
     uint len = StringUtils.strlen(name);
     require(len > 0);
+
     if (len == 3) {
-      return 5 * 10**17; // 5 MATIC = 5 000 000 000 000 000 000 (18 decimals). We're going with 0.5 Matic cause the faucets don't give a lot
+        return 3 * 10**17; // Adjusted to 0.3 MATIC
     } else if (len == 4) {
-      return 3 * 10**17; // To charge smaller amounts, reduce the decimals. This is 0.3
+        return 2 * 10**17; // Adjusted to 0.2 MATIC
     } else {
-      return 1 * 10**17;
+        return 1 * 10**17; // Default to 0.1 MATIC
     }
-  }
+}
   
   function getAddress(string calldata name) public view returns (address) {
     return domains[name];

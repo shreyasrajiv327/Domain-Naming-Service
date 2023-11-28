@@ -13,8 +13,8 @@ const GITHUB_HANDLE = 'shreyasrajiv327';
 const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const tld = '.ninja';
-const CONTRACT_ADDRESS = "0xfd36c2DF86FC8C9453a1fda1bCeE93BA1F6BD411";
+const tld = '.Syndicate';
+const CONTRACT_ADDRESS = "0x746f0bd4C040BDFC41EaB77ca370F87662f546e6";
 
 const App = () => {
 	const [network, setNetwork] = useState('');
@@ -354,7 +354,6 @@ const App = () => {
 				{ !currentAccount && renderNotConnectedContainer() }
 				{ currentAccount && renderInputForm() }
 				{ mints && renderMints() }
-
 				<div className="footer-container">
   <img alt="Github Logo" className="github-logo" src={githubLogo} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
   <a
