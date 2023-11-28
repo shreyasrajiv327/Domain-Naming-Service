@@ -165,7 +165,23 @@ const App = () => {
 			console.log(error);
 		}
 	}
+	const withdrawFunds = async () => {
+		try {
+			const { ethereum } = window;
+			if (ethereum) {
+				const provider = new ethers.providers.Web3Provider(ethereum); 
+				const signer = provider.getSigner(); 
+				const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI.abi, signer); 
 
+				const tx = await contract.withdraw(); 
+				await tx.wait(); 
+
+				console.log("Funds withdrawn successfully!");
+			}
+		} catch (error) {
+			console.error("Error withdrawing funds:", error);
+		}
+	};
 	const fetchMints = async () => {
 		try {
 			const { ethereum } = window;
@@ -280,6 +296,7 @@ const App = () => {
 	}
 
 	// Form to enter domain name and data
+	// Form to enter domain name and data
 	const renderInputForm = () => {
 		if (network !== 'Polygon Mumbai Testnet') {
 			return (
@@ -322,9 +339,14 @@ const App = () => {
 					</div>
 				) : (
 					// If editing is not true, the mint button will be returned instead
-					<button className='cta-button mint-button' disabled={loading} onClick={mintDomain}>
-						Mint
-					</button>
+					<div>
+						<button className='cta-button mint-button' disabled={loading} onClick={mintDomain}>
+							Mint
+						</button>
+						<button className='cta-button mint-button' onClick={withdrawFunds}>
+							Withdraw Funds
+						</button>
+					</div>
 				)}
 			</div>
 		);
@@ -340,7 +362,7 @@ const App = () => {
 				<div className="header-container">
 					<header>
 						<div className="left">
-							<b><p className="title">Shreyas's Naming Service🫡</p></b>
+							<p className="title">CryptoConnect Naming Service💰🤑</p>
 							<p className="subtitle">Your immortal API on the blockchain!</p>
 						</div>
 						{/* Display a logo and wallet connection status*/}
@@ -350,6 +372,7 @@ const App = () => {
 						</div>
 					</header>
 				</div>
+
 
 				{ !currentAccount && renderNotConnectedContainer() }
 				{ currentAccount && renderInputForm() }
